@@ -1,21 +1,30 @@
 module.exports = {
    root: true,
-   env: { browser: true, es2020: true },
+   env: {
+      browser: true,
+   },
+   parser: '@typescript-eslint/parser',
+   plugins: ['react', 'react-hooks', 'jsx-a11y', 'prettier'],
    extends: [
-      'eslint:recommended',
+      'airbnb',
+      'airbnb-typescript',
       'plugin:react/recommended',
       'plugin:react-hooks/recommended',
       'plugin:jsx-a11y/recommended',
+      'prettier',
    ],
-   parser: '@typescript-eslint/parser',
-   plugins: ['react', 'react-hooks', 'jsx-a11y', 'prettier'],
-   ignorePatterns: ['node_modules/', 'dist/', 'build/'],
+   ignorePatterns: [
+      'node_modules/',
+      'dist/',
+      'build/',
+      'vite.config.ts',
+      '.eslintrc.cjs',
+   ],
    parserOptions: {
-      ecmaVersion: 2021,
-      sourceType: 'module',
       ecmaFeatures: {
          jsx: true,
       },
+      project: './tsconfig.json',
    },
    settings: {
       react: {
@@ -24,6 +33,8 @@ module.exports = {
    },
    rules: {
       'react/react-in-jsx-scope': 'off',
+      'react/prop-types': 'off',
+      'import/prefer-default-export': 'off',
       'prettier/prettier': 'error',
    },
 };

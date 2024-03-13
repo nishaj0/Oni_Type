@@ -1,3 +1,4 @@
+import { Footer, Header } from './components';
 import { themeColors } from './utils/theme';
 import './App.css';
 
@@ -10,7 +11,9 @@ function App() {
             color: themeColors.aura.text.primary,
          }}
       >
+         <Header />
          <div>body</div>
+         <Footer />
       </div>
    );
 }

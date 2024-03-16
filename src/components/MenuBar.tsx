@@ -8,7 +8,7 @@ function MenuBar() {
             backgroundColor: themeColors.aura.background.secondary,
             color: themeColors.aura.text.primary,
          }}
-         className="px-4 py-1 flex justify-between items-center space-x-4 rounded-lg"
+         className="mt-12 px-4 py-1 w-fit flex justify-between items-center space-x-4 rounded-lg "
       >
          <MenuBarItem items={['word', 'quotes']} borderRight={true} />
          <MenuBarItem items={['easy', 'medium', 'hard']} borderRight={true} />

@@ -1,4 +1,4 @@
-import { Footer, Header } from './components';
+import { Footer, Header, MenuBar } from './components';
 import { themeColors } from './utils/theme';
 import './App.css';
 
@@ -12,7 +12,10 @@ function App() {
          }}
       >
          <Header />
-         <div>body</div>
+         <div>
+            <MenuBar />
+            <div>body</div>
+         </div>
          <Footer />
       </div>
    );

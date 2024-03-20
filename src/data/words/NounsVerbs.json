@@ -1,5 +1,5 @@
 {
-   "nouns": {
+   "noun": {
       "easy": [
          "flower",
          "plane",
@@ -299,7 +299,7 @@
       ]
    },
 
-   "verbs": {
+   "verb": {
       "easy": [
          "create",
          "work",

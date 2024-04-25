@@ -7,6 +7,7 @@ import {
    MenuBar,
    TextContainer,
    Countdown,
+   ResetButton,
 } from './components';
 import { useStringGenerator, useCountdown } from './hooks';
 
@@ -14,6 +15,10 @@ function App() {
    const [generatedString, setGeneratedString] = useState<string | null>(null);
    const generateString = useStringGenerator();
    const { startCountdown, resetCountdown, countdown } = useCountdown(15);
+
+   const handleReset = () => {
+      console.log('Resetting...');
+   };
 
    useEffect(() => {
       setGeneratedString(generateString('medium', 'hard'));
@@ -31,9 +36,14 @@ function App() {
             <Header />
             <MenuBar />
          </div>
-         <div>
+         <div className="flex flex-col">
             <Countdown timeLeft={countdown} />
             <TextContainer Text={generatedString!} />
+            <ResetButton
+               className="mt-12 self-center"
+               size={28}
+               onClick={handleReset}
+            />
          </div>
          <Footer />
       </div>

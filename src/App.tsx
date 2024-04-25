@@ -8,8 +8,14 @@ import {
    TextContainer,
    Countdown,
    ResetButton,
+   ThemeButton,
 } from './components';
 import { useStringGenerator, useCountdown } from './hooks';
+
+const style = {
+   backgroundColor: themeColors.aura.background.primary,
+   color: themeColors.aura.text.primary,
+};
 
 function App() {
    const [generatedString, setGeneratedString] = useState<string | null>(null);
@@ -27,10 +33,7 @@ function App() {
    return (
       <div
          className="px-24 py-8 w-full h-screen flex flex-col justify-between items-center"
-         style={{
-            backgroundColor: themeColors.aura.background.primary,
-            color: themeColors.aura.text.primary,
-         }}
+         style={style}
       >
          <div className="w-full flex flex-col justify-center items-center">
             <Header />
@@ -48,7 +51,9 @@ function App() {
                size={28}
             />
          </div>
-         <Footer className="w-full text-2xl" />
+         <Footer className="w-full text-2xl">
+            <ThemeButton />
+         </Footer>
       </div>
    );
 }

@@ -1,13 +1,13 @@
 import { FaGithub, FaDiscord } from 'react-icons/fa';
-import { IoMdColorPalette } from 'react-icons/io';
 import { FaXTwitter } from 'react-icons/fa6';
 import { themeColors } from '../utils/theme';
 
 interface FooterProps {
    className?: string;
+   children: React.ReactNode;
 }
 
-function Footer({ className }: FooterProps) {
+function Footer({ className, children }: FooterProps) {
    return (
       <div
          className={`flex justify-between items-center text-center align-bottom ${className}`}
@@ -24,13 +24,7 @@ function Footer({ className }: FooterProps) {
                <FaXTwitter className="cursor-pointer" />
             </a>
          </div>
-         <button
-            type="button"
-            className="text-2xl flex justify-between items-center text-center"
-         >
-            <IoMdColorPalette className="mt-1 mr-1" />
-            aura
-         </button>
+         {children}
       </div>
    );
 }

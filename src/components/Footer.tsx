@@ -3,10 +3,14 @@ import { IoMdColorPalette } from 'react-icons/io';
 import { FaXTwitter } from 'react-icons/fa6';
 import { themeColors } from '../utils/theme';
 
-function Footer() {
+interface FooterProps {
+   className?: string;
+}
+
+function Footer({ className }: FooterProps) {
    return (
       <div
-         className="w-full text-2xl flex justify-between items-center text-center align-bottom"
+         className={`flex justify-between items-center text-center align-bottom ${className}`}
          style={{ color: themeColors.aura.text.tertiary }}
       >
          <div className="flex justify-center items-center space-x-4">

@@ -1,11 +1,14 @@
 interface TextContainerProps {
-   Text: string;
+   textContent: string;
+   className?: string;
 }
 
-function TextContainer({ Text }: TextContainerProps) {
+function TextContainer({ textContent, className }: TextContainerProps) {
    return (
-      <div className="text-2xl flex flex-col justify-center items-center text-left">
-         <div>{Text}</div>
+      <div
+         className={`flex flex-col justify-center items-center text-left ${className}`}
+      >
+         <div>{textContent}</div>
       </div>
    );
 }

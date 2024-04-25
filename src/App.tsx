@@ -1,12 +1,19 @@
-import { Footer, Header, MenuBar, TextContainer } from './components';
-import { themeColors } from './utils/theme';
-import useStringGenerator from './hooks/useStringGenerator';
-import './App.css';
 import { useEffect, useState } from 'react';
+import './App.css';
+import { themeColors } from './utils/theme';
+import {
+   Footer,
+   Header,
+   MenuBar,
+   TextContainer,
+   Countdown,
+} from './components';
+import { useStringGenerator, useCountdown } from './hooks';
 
 function App() {
    const [generatedString, setGeneratedString] = useState<string | null>(null);
    const generateString = useStringGenerator();
+   const { startCountdown, resetCountdown, countdown } = useCountdown(15);
 
    useEffect(() => {
       setGeneratedString(generateString('medium', 'hard'));
@@ -25,6 +32,7 @@ function App() {
             <MenuBar />
          </div>
          <div>
+            <Countdown timeLeft={countdown} />
             <TextContainer Text={generatedString!} />
          </div>
          <Footer />

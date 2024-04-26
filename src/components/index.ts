@@ -5,6 +5,7 @@ import TextContainer from './TextContainer';
 import Countdown from './Countdown';
 import ResetButton from './ResetButton';
 import ThemeButton from './ThemeButton';
+import Tooltip from './Tooltip';
 
 export {
    Header,
@@ -14,4 +15,5 @@ export {
    Countdown,
    ResetButton,
    ThemeButton,
+   Tooltip,
 };

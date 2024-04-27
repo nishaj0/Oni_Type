@@ -6,6 +6,7 @@ import Countdown from './Countdown';
 import ResetButton from './ResetButton';
 import ThemeButton from './ThemeButton';
 import Tooltip from './Tooltip';
+import IconButton from './IconButton';
 
 export {
    Header,
@@ -16,4 +17,5 @@ export {
    ResetButton,
    ThemeButton,
    Tooltip,
+   IconButton,
 };

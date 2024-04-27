@@ -7,6 +7,7 @@ import ResetButton from './ResetButton';
 import ThemeButton from './ThemeButton';
 import Tooltip from './Tooltip';
 import IconButton from './IconButton';
+import SocialMedias from './SocialMedias';
 
 export {
    Header,
@@ -18,4 +19,5 @@ export {
    ThemeButton,
    Tooltip,
    IconButton,
+   SocialMedias,
 };

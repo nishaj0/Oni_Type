@@ -1,5 +1,5 @@
-import { IoHelpCircleOutline } from 'react-icons/io5';
 import { themeColors } from '../utils/theme';
+import IconButton from './IconButton';
 
 function Header() {
    return (
@@ -8,7 +8,11 @@ function Header() {
          style={{ color: themeColors.aura.text.tertiary }}
       >
          <h1 className="text-3xl">OniType</h1>
-         <IoHelpCircleOutline className="text-4xl cursor-pointer" />
+         <IconButton
+            iconName="About"
+            link="https://github.com/nishaj0/Oni_Type"
+            className="text-4xl cursor-pointer"
+         />
       </div>
    );
 }

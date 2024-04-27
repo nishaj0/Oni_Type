@@ -9,6 +9,7 @@ import {
    Countdown,
    ResetButton,
    ThemeButton,
+   SocialMedias,
 } from './components';
 import { useStringGenerator, useCountdown } from './hooks';
 
@@ -52,6 +53,7 @@ function App() {
             />
          </div>
          <Footer className="w-full text-2xl">
+            <SocialMedias />
             <ThemeButton />
          </Footer>
       </div>

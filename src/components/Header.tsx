@@ -1,11 +1,11 @@
-import { themeColors } from '../utils/theme';
+import themes from '../style/themes';
 import IconButton from './IconButton';
 
 function Header() {
    return (
       <div
          className="w-full flex justify-between items-center text-center"
-         style={{ color: themeColors.aura.text.tertiary }}
+         style={{ color: themes.aura.text.tertiary }}
       >
          <h1 className="text-3xl">OniType</h1>
          <IconButton

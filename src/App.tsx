@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import './App.css';
-import { themeColors } from './utils/theme';
+import theme from './style/themes';
 import {
    Footer,
    Header,
@@ -14,8 +14,8 @@ import {
 import { useStringGenerator, useCountdown } from './hooks';
 
 const style = {
-   backgroundColor: themeColors.aura.background.primary,
-   color: themeColors.aura.text.primary,
+   backgroundColor: theme.aura.background.primary,
+   color: theme.aura.text.primary,
 };
 
 function App() {

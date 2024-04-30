@@ -1,4 +1,4 @@
-import { themeColors } from '../utils/theme';
+import  themes  from '../style/themes';
 
 interface FooterProps {
    className?: string;
@@ -9,7 +9,7 @@ function Footer({ className, children }: FooterProps) {
    return (
       <div
          className={`flex justify-between items-center text-center align-bottom ${className}`}
-         style={{ color: themeColors.aura.text.tertiary }}
+         style={{ color: themes.aura.text.tertiary }}
       >
          {children}
       </div>

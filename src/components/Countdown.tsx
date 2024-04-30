@@ -1,4 +1,4 @@
-import { themeColors } from '../utils/theme';
+import  themes  from '../style/themes';
 
 interface CountdownProps {
    timeLeft: number;
@@ -6,7 +6,7 @@ interface CountdownProps {
 }
 
 const style = {
-   color: themeColors.aura.text.secondary,
+   color: themes.aura.text.secondary,
 };
 
 function Countdown({ timeLeft, className }: CountdownProps) {

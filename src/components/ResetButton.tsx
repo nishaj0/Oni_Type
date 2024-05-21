@@ -1,6 +1,6 @@
 import { MdRefresh } from 'react-icons/md';
-import themes from '../style/themes';
 import Tooltip from './Tooltip';
+import { useTheme } from '../hooks';
 
 interface ResetButtonProps {
    className?: string;
@@ -9,12 +9,15 @@ interface ResetButtonProps {
 }
 
 function ResetButton({ className, size, onClick }: ResetButtonProps) {
+   const { getTheme } = useTheme();
+   const currentThemeInfo = getTheme();
+
    return (
       <Tooltip id="reset-button" content="Reset" place="bottom">
          <button className={`cursor-pointer ${className}`} onClick={onClick}>
             <MdRefresh
                size={size}
-               style={{ color: themes.aura.text.secondary }}
+               style={{ color: currentThemeInfo.secondaryText }}
             />
          </button>
       </Tooltip>

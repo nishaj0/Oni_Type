@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import './App.css';
-import theme from './style/themes';
 import {
    Footer,
    Header,
@@ -11,17 +10,15 @@ import {
    ThemeButton,
    SocialMedias,
 } from './components';
-import { useStringGenerator, useCountdown } from './hooks';
-
-const style = {
-   backgroundColor: theme.aura.background.primary,
-   color: theme.aura.text.primary,
-};
+import { useStringGenerator, useCountdown, useTheme } from './hooks';
 
 function App() {
    const [generatedString, setGeneratedString] = useState<string | null>(null);
    const generateString = useStringGenerator();
    const { startCountdown, resetCountdown, countdown } = useCountdown(15);
+   const { currentTheme, getTheme, updateCurrentTheme } = useTheme();
+
+   const currentThemeInfo = getTheme();
 
    const handleReset = () => {
       console.log('Resetting...');
@@ -34,7 +31,10 @@ function App() {
    return (
       <div
          className="px-24 py-8 w-full h-screen flex flex-col justify-between items-center"
-         style={style}
+         style={{
+            backgroundColor: currentThemeInfo.primaryBg,
+            color: currentThemeInfo.primaryText,
+         }}
       >
          <div className="w-full flex flex-col justify-center items-center">
             <Header />

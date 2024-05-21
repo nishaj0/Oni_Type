@@ -1,4 +1,4 @@
-import themes from '../style/themes';
+import { useTheme } from '../hooks';
 import MenuBarItem from './MenuBarItem';
 
 interface MenuBarProps {
@@ -6,11 +6,14 @@ interface MenuBarProps {
 }
 
 function MenuBar({ className }: MenuBarProps) {
+   const { getTheme } = useTheme();
+   const currentThemeInfo = getTheme();
+
    return (
       <div
          style={{
-            backgroundColor: themes.aura.background.secondary,
-            color: themes.aura.text.primary,
+            backgroundColor: currentThemeInfo.secondaryBg,
+            color: currentThemeInfo.primaryText,
          }}
          className={`w-fit flex justify-between items-center space-x-4 rounded-lg ${className}`}
       >

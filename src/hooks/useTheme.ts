@@ -1,43 +1,19 @@
-import { useState, useEffect, useCallback } from 'react';
-import themes from '../style/themes';
-import { ThemeKey } from '../style/themes';
-import useLocalStorage from './useLocalStorage';
-
-const localStorageKey = 'oniTypeTheme';
-const defaultTheme = 'aura';
+import { useCallback, useContext } from 'react';
+import themes, { ThemeKey } from '../style/themes';
+import { ThemeContext } from '../context/ThemeContext';
 
 function useTheme() {
-   const { getLocalStorage, setLocalStorage } = useLocalStorage();
+   const themeContext = useContext(ThemeContext);
 
-   const [currentTheme, setCurrentTheme] = useState<ThemeKey>(() => {
-      const storedTheme = getLocalStorage(localStorageKey);
-      return storedTheme && Object.keys(themes).includes(storedTheme)
-         ? storedTheme
-         : defaultTheme;
-   });
+   // ? If the hook is not used within a ContextProvider, throw an error
+   if (!themeContext) {
+      throw new Error('useTheme must be used within a ThemeProvider');
+   }
 
-   const setTheme = useCallback(
-      (value: ThemeKey) => {
-         setCurrentTheme(value);
-         setLocalStorage(localStorageKey, value);
-      },
-      [setCurrentTheme, setLocalStorage],
-   );
+   const { currentTheme, updateCurrentTheme } = themeContext;
 
-   // ? Show all theme names
-   const getThemeNames = useCallback(() => {
-      let themeNames: string[] = [];
-
-      // ? Get the theme name
-      Object.keys(themes).map((themeKey) => {
-         const themeName = themes[themeKey as ThemeKey].name;
-         themeNames.push(themeName);
-      });
-      return themeNames;
-   }, [themes, currentTheme]);
-
-   // ? get current theme's colors
-   const getThemeColors = useCallback(
+   // ? Get the theme details
+   const getTheme = useCallback(
       (themeKey: ThemeKey = currentTheme) => {
          const theme = themes[themeKey];
          return {
@@ -52,12 +28,8 @@ function useTheme() {
       },
       [currentTheme],
    );
-   return {
-      getThemeNames,
-      getThemeColors,
-      currentTheme,
-      setTheme,
-   };
+
+   return { currentTheme, updateCurrentTheme, getTheme };
 }
 
 export default useTheme;

@@ -97,7 +97,7 @@ export const stringGenerator: StringGenerator = (wordsTemplate, level) => {
          randomWord = LanguageComponents[wordType][randomWordIndex];
       }
 
-      //?  add randomWord to the generatedString with a space
+      // ?  add randomWord to the generatedString with a space
       generatedString = `${generatedString} ${randomWord}`;
    });
    return generatedString.trim();

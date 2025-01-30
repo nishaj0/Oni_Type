@@ -17,8 +17,8 @@ function MenuBar({ className }: MenuBarProps) {
          }}
          className={`w-fit flex justify-between items-center space-x-4 rounded-lg ${className}`}
       >
-         <MenuBarItem items={['word', 'quotes']} borderRight={true} />
-         <MenuBarItem items={['easy', 'medium', 'hard']} borderRight={true} />
+         <MenuBarItem items={['word', 'quotes']} borderRight />
+         <MenuBarItem items={['easy', 'medium', 'hard']} borderRight />
          <MenuBarItem items={[15, 30, 60]} />
       </div>
    );

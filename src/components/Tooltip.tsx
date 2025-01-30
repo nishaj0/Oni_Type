@@ -19,7 +19,7 @@ function Tooltip({ id, content, children, ...rest }: TooltipProps) {
    const childWithId = React.cloneElement(children, { id });
 
    // ? select the anchor element by id
-   const anchorSelectId = '#' + id;
+   const anchorSelectId = `#${id}`;
 
    const style = {
       fontSize: '1rem',

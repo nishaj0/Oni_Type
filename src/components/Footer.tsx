@@ -1,4 +1,4 @@
-import  themes  from '../style/themes';
+import themes from '../style/themes';
 
 interface FooterProps {
    className?: string;

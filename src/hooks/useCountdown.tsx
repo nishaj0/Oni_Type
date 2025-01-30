@@ -28,11 +28,12 @@ function useCountdown(initialValue: number, interval = 1000) {
    }, [initialValue]);
 
    // ? Clear interval on unmount
-   useEffect(() => {
-      return () => {
+   useEffect(
+      () => () => {
          if (intervalRef.current) window.clearInterval(intervalRef.current);
-      };
-   }, []);
+      },
+      [],
+   );
 
    return { startCountdown, resetCountdown, countdown };
 }

@@ -42,10 +42,7 @@ function App() {
          </div>
          <div className="flex flex-col">
             <Countdown timeLeft={countdown} className="mb-2 text-xl" />
-            <TextContainer
-               textContent={generatedString!}
-               className="text-2xl"
-            />
+            <TextContainer textContent={generatedString!} />
             <ResetButton
                onClick={handleReset}
                className="mt-12 self-center"

@@ -5,3 +5,19 @@ body {
    font-optical-sizing: auto;
    font-style: normal;
 }
+
+.blinking-cursor {
+   display: inline-block;
+   width: 1px;
+   background-color: currentColor;
+   animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+   from, to {
+      visibility: hidden;
+   }
+   50% {
+      visibility: visible;
+   }
+}

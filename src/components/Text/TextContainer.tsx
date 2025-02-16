@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
-import { useTheme } from '../../hooks';
 import { allowedKeyCodeRegex } from '../../utils/constants';
+import Char from './Char';
 
 interface TextContainerProps {
    textContent: string;
@@ -15,9 +15,6 @@ function TextContainer({ textContent, className }: TextContainerProps) {
       () => textContent?.split(''),
       [textContent],
    );
-
-   const { getTheme } = useTheme();
-   const currentThemeInfo = getTheme();
 
    useEffect(() => {
       const handleKeyDown = (event: KeyboardEvent) => {
@@ -56,29 +53,14 @@ function TextContainer({ textContent, className }: TextContainerProps) {
          <p
             className={`transition-opacity  ${!isFocused ? 'blur-sm opacity-70' : ''}`}
          >
-            {splitTextContent?.map((char, charIndex) => {
-               const typedChar = typedText[charIndex];
-               const isCorrect = char === typedChar;
-               const style = isCorrect ? 'font-medium' : 'underline';
-               const additionalStyle =
-                  typedChar && !isCorrect && char === ' '
-                     ? { backgroundColor: currentThemeInfo.errorText }
-                     : {};
-               return (
-                  <span
-                     key={char + Math.random()}
-                     className={`opacity-50 ${typedChar ? `!opacity-100 ${style}` : ''}`}
-                     style={{
-                        ...additionalStyle,
-                        ...(typedChar && !isCorrect && char !== ' '
-                           ? { color: currentThemeInfo.errorText }
-                           : {}),
-                     }}
-                  >
-                     {char}
-                  </span>
-               );
-            })}
+            {splitTextContent?.map((char, charIndex) => (
+               <Char
+                  key={char + Math.random()}
+                  char={char}
+                  typedText={typedText}
+                  charIndex={charIndex}
+               />
+            ))}
             {isFocused && <span className="blinking-cursor">|</span>}
          </p>
          <p
